@@ -4,7 +4,7 @@ metadata:
   labels:
   name: prueba-gha
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       name: prueba-gha
@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: prueba-gha
-        image: pablokbs/prueba-gha
+        image: estebangaray/alta
         ports:
         - containerPort: 80
           name: http
