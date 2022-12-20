@@ -34,7 +34,7 @@ jobs:
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
         with:
-          args: set image --record deployment/my-app prueba-gha=estebangaray/alta:${{ github.sha }}
+          args: set image --record deployment/prueba-gha prueba-gha=estebangaray/alta:${{ github.sha }}
       - name: verify deployment
         uses: steebchen/kubectl@master
         env:
