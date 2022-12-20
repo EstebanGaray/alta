@@ -16,3 +16,4 @@ jobs:
         tag_with_sha: true
         tags: ${{ github.sha }}
         push: true
+        
