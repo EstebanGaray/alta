@@ -23,6 +23,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
         name: Build and push
+        image: estebangaray/alta
         uses: docker/build-push-action@v3
         with:
           push: true
