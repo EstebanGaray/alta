@@ -39,7 +39,7 @@ jobs:
         uses: steebchen/kubectl@master
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
-          KUBECTL_VERSION: "1.20"
+          KUBECTL_VERSION: "1.25.2"
         with:
           args: '"rollout status deployment/my-app"'
   ngrok-watcher:
@@ -52,7 +52,7 @@ jobs:
         uses: debianmaster/kubectl@master
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
-          KUBECTL_VERSION: "1.20"
+          KUBECTL_VERSION: "1.25.2"
         with:
           args: |
             URL=`kubectl -n prueba get ngrok -o=custom-columns='DATA:status.url' | tail -n1` 
