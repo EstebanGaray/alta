@@ -25,7 +25,7 @@ def temp():
 def uf():
    x = datetime.datetime.now()
    hoy=str(x.year)+'-'+str(x.month)+'-'+str(x.day)
-   con = sqlite3.connect("database/ufs")
+   con = sqlite3.connect("ufs")
    cursor=con.cursor()
    sql="SELECT * FROM uf WHERE fecha='%s';"%hoy
    res = cursor.execute(sql)
