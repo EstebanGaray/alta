@@ -40,7 +40,10 @@ def uf():
    sql='SELECT version()'
    res = cursor.execute(sql)
    ret=res.fetchone()
-   return ret
+   for id,valor,fecha in ret:
+      print(id,valor,fecha)
+      valooor=valor
+   return valooor
    
    
 
