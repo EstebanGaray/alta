@@ -10,7 +10,7 @@ import psycopg2
 db_host = 'postgres-service.default.svc.cluster.local'
 db_name='postgresdb'
 db_user='postgres'
-db_password='test123'
+db_password='postgres'
 
 
 
