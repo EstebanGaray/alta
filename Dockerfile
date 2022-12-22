@@ -16,7 +16,6 @@ RUN pip install -r requirements.txt
 
 # Copy the content of the local src directory to the working directory
 COPY app.py .
-COPY ufs .
 #EXPOSE 5000
 # Specify the command to run on container start
 CMD [ "python","./app.py" ]
