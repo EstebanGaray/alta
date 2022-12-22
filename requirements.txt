@@ -1,5 +1,5 @@
 flask
 requests
-gunicorn
 pytz
-psycopg2-binary
+#psycopg2-binary
+psycopg2
