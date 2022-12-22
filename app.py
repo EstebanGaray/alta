@@ -37,7 +37,7 @@ def uf():
    con = pgdb.connect(host=db_host,database=db_name,user=db_user,password=db_password)
    cursor=con.cursor()
    #sql="SELECT * FROM uf WHERE fecha='%s';"%hoy
-   sql='SELECT version()'
+   sql='SELECT * from uf'
    res = cursor.execute(sql)
    ret=res.fetchone()
    for id,valor,fecha in ret:
