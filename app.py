@@ -40,7 +40,8 @@ def uf():
    sql='SELECT * from uf'
    res = cursor.execute(sql)
    ret=res.fetchone()
-   return ret
+   print(ret)
+   return jsonify(ret)
    
    
 
