@@ -34,7 +34,7 @@ def temp():
 def uf():
    x = datetime.datetime.now(pytz.timezone('America/Santiago'))
    hoy=str(x.year)+'-'+str(x.month)+'-'+str(x.day)
-   con = psycopg2.connect(host=db_name,dbname=db_name,user=db_user,password=db_password)
+   con = psycopg2.connect(host=db_host,dbname=db_name,user=db_user,password=db_password)
    cursor=con.cursor()
    #sql="SELECT * FROM uf WHERE fecha='%s';"%hoy
    sql="SELECT * FROM uf;"
