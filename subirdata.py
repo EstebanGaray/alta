@@ -1,7 +1,7 @@
 import sqlite3
 import requests
 #create table
-con = sqlite3.connect("database/ufs")
+con = sqlite3.connect("ufs")
 cursor=con.cursor()
 cursor.execute("CREATE TABLE IF NOT EXISTS uf (valor varchar(10),fecha VARCHAR(10));")
 
@@ -12,7 +12,7 @@ uf=api_response['UFs'][0]["Valor"]
 day=api_response['UFs'][0]["Fecha"]
 
 #cargar dato
-con = sqlite3.connect("ufs")
+con = sqlite3.connect("database/ufs")
 sql="INSERT INTO uf VALUES('%s','%s');"%(uf,day)
 cursor=con.cursor()
 cursor.execute(sql)

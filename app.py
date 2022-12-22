@@ -4,7 +4,7 @@ import requests
 import random
 import sqlite3
 import datetime
-
+import pytz
 # coding: utf-8
 
 
@@ -16,14 +16,18 @@ def hello_world():
 
 @app.route('/temp')
 def temp():
-   
-   api_result = requests.get('http://api.weatherunlocked.com/api/current/-33.456,-70.648?app_id=210dc524&app_key=a1277856144d5af27e35db0afb5744e5')
+   params={
+      'access_key': "996be65dbbfdaa87d732990d2d1b15f0",
+      'query': 'Santiago Chile'
+   }
+   api_result = requests.get('http://api.weatherstack.com/current', params)
    api_response = api_result.json()
-   return jsonify(api_response['temp_c'])
+   #print(api_response["current"]["temperature"])
+   return jsonify(api_response["current"]["temperature"])
 
 @app.route('/uf')
 def uf():
-   x = datetime.datetime.now()
+   x = datetime.datetime.now(pytz.timezone('America/Santiago'))
    hoy=str(x.year)+'-'+str(x.month)+'-'+str(x.day)
    con = sqlite3.connect("ufs")
    cursor=con.cursor()
