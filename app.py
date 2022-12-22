@@ -39,10 +39,11 @@ def uf():
    #sql="SELECT * FROM uf WHERE fecha='%s';"%hoy
    sql="SELECT * FROM uf;"
    res = cursor.execute(sql)
+   return jsonify(res)
    ret=res.fetchone()
    cursor.close()
    
-   return jsonify(ret)
+   
 
 
    '''api_result = requests.get('https://api.cmfchile.cl/api-sbifv3/recursos_api/uf?apikey=edcc2fc99d53308cdf27920f9c94210dfa1968a7&formato=json')
