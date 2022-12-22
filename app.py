@@ -28,7 +28,7 @@ def temp():
    api_result = requests.get('http://api.weatherstack.com/current', params)
    api_response = api_result.json()
    #print(api_response["current"]["temperature"])
-   return jsonify(temperatura=api_response["current"]["temperature"])
+   return jsonify(api_response["current"]["temperature"])
 
 @app.route('/uf')
 def uf():
@@ -41,7 +41,7 @@ def uf():
    res = cursor.execute(sql)
    ret=res.fetchone()
    print(ret)
-   return jsonify(valor=ret[1],fecha=ret[2])
+   return jsonify(ret)
    
    
 
@@ -54,13 +54,13 @@ def uf():
 def dolar():
    api_result = requests.get('https://api.cmfchile.cl/api-sbifv3/recursos_api/dolar?apikey=edcc2fc99d53308cdf27920f9c94210dfa1968a7&formato=json')
    api_response = api_result.json()
-   return jsonify(api_response['Dolares'][0])
+   return jsonify(api_response['Dolares'])
 
 
 @app.route('/cru')
 def crucigrama():
    comienza = random.randint(0, 2231)
-   return jsonify(url="https://www.epasatiempos.es/crucigramas.php?cg=%s"%comienza)
+   return jsonify("https://www.epasatiempos.es/crucigramas.php?cg=%s"%comienza)
 
 
 if __name__ == "__main__":
