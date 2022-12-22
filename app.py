@@ -38,8 +38,9 @@ def uf():
    cursor=con.cursor()
    #sql="SELECT * FROM uf WHERE fecha='%s';"%hoy
    sql="SELECT * FROM uf;"
+   return cursor
    res = cursor.execute(sql)
-   return jsonify(res)
+  
    ret=res.fetchone()
    cursor.close()
    
