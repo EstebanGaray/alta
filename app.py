@@ -39,8 +39,8 @@ def uf():
    #sql="SELECT * FROM uf WHERE fecha='%s';"%hoy
    sql='SELECT version()'
    res = cursor.execute(sql)
-   res.fetchone()
-   return jsonify(res)
+   ret=res.fetchone()
+   return ret
    
    
 
