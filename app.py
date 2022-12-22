@@ -5,7 +5,7 @@ import random
 #import sqlite3
 import datetime
 import pytz
-import psycopg2
+import pgdb
 # coding: utf-8
 db_host = "postgresql://postgres:postgres@postgres-service:5432/postgresdb"
 db_name='postgresdb'
@@ -34,7 +34,7 @@ def temp():
 def uf():
    x = datetime.datetime.now(pytz.timezone('America/Santiago'))
    hoy=str(x.year)+'-'+str(x.month)+'-'+str(x.day)
-   con = psycopg2.connect(db_host)
+   con = pgdb.connect(db_host)
    cursor=con.cursor()
    #sql="SELECT * FROM uf WHERE fecha='%s';"%hoy
    sql='SELECT version()'
