@@ -7,7 +7,7 @@ import datetime
 import pytz
 import pgdb
 # coding: utf-8
-db_host = "postgresql://postgres:postgres@postgres-service:5432/postgresdb"
+db_host = "postgres-service.default.svc.cluster.local"
 db_name='postgresdb'
 db_user='postgres'
 db_password='postgres'
@@ -34,7 +34,7 @@ def temp():
 def uf():
    x = datetime.datetime.now(pytz.timezone('America/Santiago'))
    hoy=str(x.year)+'-'+str(x.month)+'-'+str(x.day)
-   con = pgdb.connect(db_host)
+   con = pgdb.connect(host=db_host,database=db_name,user=db_user,password=db_password)
    cursor=con.cursor()
    #sql="SELECT * FROM uf WHERE fecha='%s';"%hoy
    sql='SELECT version()'
