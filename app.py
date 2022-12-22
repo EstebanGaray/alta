@@ -41,7 +41,7 @@ def uf():
    res = cursor.execute(sql)
    ret=res.fetchone()
    print(ret)
-   return jsonify(ret)
+   return jsonify(valor=ret[1],fecha=ret[2])
    
    
 
@@ -54,13 +54,13 @@ def uf():
 def dolar():
    api_result = requests.get('https://api.cmfchile.cl/api-sbifv3/recursos_api/dolar?apikey=edcc2fc99d53308cdf27920f9c94210dfa1968a7&formato=json')
    api_response = api_result.json()
-   return jsonify(api_response['Dolares'])
+   return jsonify(api_response['Dolares'][0])
 
 
 @app.route('/cru')
 def crucigrama():
    comienza = random.randint(0, 2231)
-   return jsonify("https://www.epasatiempos.es/crucigramas.php?cg=%s"%comienza)
+   return jsonify(url="https://www.epasatiempos.es/crucigramas.php?cg=%s"%comienza)
 
 
 if __name__ == "__main__":
