@@ -2,10 +2,15 @@ from flask import Flask,jsonify
 app = Flask(__name__)
 import requests
 import random
-import sqlite3
+#import sqlite3
 import datetime
 import pytz
+import psycopg2
 # coding: utf-8
+db_host = 'postgres-service.default.svc.cluster.local'
+db_name='postgresdb'
+db_user='postgres'
+db_password=''
 
 
 
@@ -29,9 +34,10 @@ def temp():
 def uf():
    x = datetime.datetime.now(pytz.timezone('America/Santiago'))
    hoy=str(x.year)+'-'+str(x.month)+'-'+str(x.day)
-   con = sqlite3.connect("ufs")
+   con = psycopg2.connect(host=db_name,dbname=db_name,user=db_user,password=db_password)
    cursor=con.cursor()
-   sql="SELECT * FROM uf WHERE fecha='%s';"%hoy
+   #sql="SELECT * FROM uf WHERE fecha='%s';"%hoy
+   sql="SELECT * FROM uf;"
    res = cursor.execute(sql)
    ret=res.fetchone()
    

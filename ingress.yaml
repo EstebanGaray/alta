@@ -1,18 +1,19 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: app
+  name: flask-app-ingress
   annotations:
-    ingress.kubernetes.io/ssl-redirect: "false"
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+
 spec:
   rules:
-  - host: "localhost"
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: app
-            port:
-              number: 5000
+    - http:
+        paths:
+          - backend:
+              service:
+                name: flask-app-service
+                port:
+                  number: 5000
+            path: /
+            pathType: Prefix
