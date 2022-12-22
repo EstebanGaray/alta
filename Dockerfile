@@ -17,4 +17,4 @@ COPY app.py .
 COPY ufs .
 #EXPOSE 5000
 # Specify the command to run on container start
-CMD [ "gunicorn", "--bind","0.0.0.0:5000","app:app" ]
+CMD [ "python","./app.py" ]
