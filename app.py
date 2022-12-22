@@ -28,7 +28,7 @@ def temp():
    api_result = requests.get('http://api.weatherstack.com/current', params)
    api_response = api_result.json()
    #print(api_response["current"]["temperature"])
-   return jsonify(api_response["current"]["temperature"])
+   return jsonify(temperatura=api_response["current"]["temperature"])
 
 @app.route('/uf')
 def uf():
