@@ -7,7 +7,7 @@ import datetime
 import pytz
 import psycopg2
 # coding: utf-8
-db_host = 'postgressql://postgres:postgres@postgres-service:5432/datos'
+db_host = "postgresql://postgres:postgres@postgres-service:5432/datos"
 db_name='datos'
 db_user='postgres'
 db_password='postgres'
