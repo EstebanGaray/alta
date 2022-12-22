@@ -37,13 +37,10 @@ def uf():
    con = psycopg2.connect(db_host)
    cursor=con.cursor()
    #sql="SELECT * FROM uf WHERE fecha='%s';"%hoy
-   sql="SELECT * FROM uf;"
-   return cursor
+   sql="SELECT version();"
    res = cursor.execute(sql)
-  
-   ret=res.fetchone()
-   cursor.close()
-   
+   res.fetchone()
+   return jsonify(res)
    
    
 
