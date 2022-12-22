@@ -40,10 +40,7 @@ def uf():
    sql='SELECT * from uf'
    res = cursor.execute(sql)
    ret=res.fetchone()
-   for id,valor,fecha in ret:
-      print(id,valor,fecha)
-      valooor=valor
-   return valooor
+   return ret
    
    
 
