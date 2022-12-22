@@ -39,7 +39,7 @@ def uf():
    #sql="SELECT * FROM uf WHERE fecha='%s';"%hoy
    sql="SELECT * FROM uf;"
    res = cursor.execute(sql)
-   return jsonify(res)
+   return jsonify(cursor)
    ret=res.fetchone()
    cursor.close()
    
