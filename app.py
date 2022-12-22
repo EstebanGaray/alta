@@ -7,7 +7,7 @@ import datetime
 import pytz
 import psycopg2
 # coding: utf-8
-db_host = 'postgres-service.default.svc.cluster.local'
+db_host = 'postgressql://postgres:postgres@postgres-service:5432/datos'
 db_name='datos'
 db_user='postgres'
 db_password='postgres'
@@ -34,7 +34,7 @@ def temp():
 def uf():
    x = datetime.datetime.now(pytz.timezone('America/Santiago'))
    hoy=str(x.year)+'-'+str(x.month)+'-'+str(x.day)
-   con = psycopg2.connect(host=db_host,dbname=db_name,user=db_user,password=db_password)
+   con = psycopg2.connect(db_host)
    cursor=con.cursor()
    #sql="SELECT * FROM uf WHERE fecha='%s';"%hoy
    sql="SELECT * FROM uf;"
